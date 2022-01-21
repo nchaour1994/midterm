@@ -11,6 +11,25 @@ public class Pattern {
 		 *
 		 *
 		 */
+		int j=1;
+		for (int i = 0; i <101; i=i+j) {
+			if(i<40){
+				j=4;
+				System.out.println(i);
+			}else if(i<70){
+				j=3;
+				System.out.println(i);
+
+			}else if (i<90){
+				j=2;
+				System.out.println(i);
+			}
+			else if(i<=100){
+				j=1;
+				System.out.println(i);
+			}
+			//System.out.println(i);
+		}
 
 	}
 }
