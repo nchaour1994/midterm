@@ -3,6 +3,7 @@ package string.problems;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -88,6 +89,38 @@ public class UnitTestingStringProblem {
         String s="madam";
         Assert.assertTrue(string.problems.Palindrome.palindromeTest(s));
         System.out.println("test palidrome  1 passed ");
+    }
+    @Test
+    public void testPermutation(){
+        ArrayList<String>expected= new ArrayList<>(Arrays.asList("abc", "bac", "bca", "acb", "cab", "cba"));
+        String[]ex = new String[expected.size()];
+        for (int i=0;i<expected.size();i++){
+            ex[i]=expected.get(i);
+        }
+        ArrayList<String> currrent= Permutation.getPermutation("abc");
+        String[]cu = new String[currrent.size()];
+        for (int i=0;i<currrent.size();i++){
+            cu[i]=currrent.get(i);
+        }
+        Assert.assertArrayEquals(ex,cu);
+        System.out.println("test passed ");
+
+    }
+    @Test
+    public void testPermutation1(){
+        ArrayList<String>expected= new ArrayList<>(Arrays.asList("abc", "acb", "bca", "acb", "cab", "cba"));
+        String[]ex = new String[expected.size()];
+        for (int i=0;i<expected.size();i++){
+            ex[i]=expected.get(i);
+        }
+        ArrayList<String> currrent= Permutation.getPermutation("abc");
+        String[]cu = new String[currrent.size()];
+        for (int i=0;i<currrent.size();i++){
+            cu[i]=currrent.get(i);
+        }
+        Assert.assertArrayEquals(ex,cu);
+        System.out.println("test passed ");
+
     }
 
 }

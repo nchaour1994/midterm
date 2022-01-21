@@ -3,16 +3,31 @@ package string.problems;
 import java.util.ArrayList;
 
 public class Permutation {
-    public  static ArrayList<String> permutation(String prefix, String str) {
-        int n = str.length();
-        ArrayList<String>arr=new ArrayList<>();
-        if (n == 0) System.out.println(prefix);
-        else {
-            for (int i = 0; i < n; i++)
-                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
-               arr.add(prefix);
+    public static ArrayList<String> getPermutation(String str)
+    {
+
+
+        if (str.length() == 0) {
+            ArrayList<String> empty = new ArrayList<>();
+            empty.add("");
+            return empty;
         }
-        return arr;
+        char ch = str.charAt(0);
+        String subStr = str.substring(1);
+
+        // Recurvise call
+        ArrayList<String> prevResult = getPermutation(subStr);
+
+        // Store the generated permutations
+        // into the resultant arraylist
+        ArrayList<String> Res = new ArrayList<>();
+
+        for (String val : prevResult) {
+            for (int i = 0; i <= val.length(); i++) {
+                Res.add(val.substring(0, i) + ch + val.substring(i));
+            }
+        }
+        return Res;
     }
 
 
@@ -24,8 +39,8 @@ public class Permutation {
          * Write Java program to compute all Permutation of a String
          *
          */
-     ArrayList<String >a= permutation(" ","abc");
-        System.out.println(a);
+        ArrayList<String> arr=getPermutation("abc");
+        System.out.println(arr);
 
 
     }
