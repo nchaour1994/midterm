@@ -17,7 +17,7 @@ public class ConnectToMongoDB {
 
     public MongoDatabase connectToMongoDB() {
         MongoClient mongoClient = new MongoClient("localhost" , 27017);
-        mongoDatabase = mongoClient.getDatabase("students");
+        mongoDatabase = mongoClient.getDatabase("cities");
         System.out.println("Database Connected");
 
         return mongoDatabase;
@@ -57,7 +57,7 @@ public class ConnectToMongoDB {
     public List<String> readFromMongoDB(){
         List<String> list = new ArrayList<String>();
         MongoDatabase mongoDatabase = connectToMongoDB();
-        MongoCollection<Document> collection = mongoDatabase.getCollection("profile");
+        MongoCollection<Document> collection = mongoDatabase.getCollection("names");
         FindIterable<Document> iterDoc = collection.find();
         Iterator it = iterDoc.iterator();
         while (it.hasNext()) {
